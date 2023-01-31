@@ -43,4 +43,22 @@ public class CountryRepositoryTest {
         assertEquals(combienDePaysDansLeJeuDeTest, nombre, "On doit trouver 4 pays" );
     }
 
+    @Test
+    void testCalculerPopulation(){
+        log.info("on vérifie le calcul de la population totale");
+        Integer idFrance = 1;
+        Integer popFrance = 12;
+        Integer populationTotale = countryDAO.populationTotale(idFrance);
+        assertEquals(popFrance, populationTotale, "La population totale doit être égale");
+    }
+
+    @Test
+    void testPopulationParPays(){
+        log.info("on vérifie la population d'un pays");
+        Integer nombrePays = 3;
+        Integer paysTotal = countryDAO.populationParPays().size();
+        assertEquals(nombrePays, paysTotal, "le nombre de pays doit être égal aux pays total");
+    }
+
+
 }
